@@ -72,8 +72,7 @@ const About = () => {
                             About Me
                         </div>
                         <div className="abtme-text">
-                            I am an Experienced Web developer with lot's of experience in developing cool stuffs and also i have
-                            developed many telegram bots as well.
+                            Hi, I'm Sourav Goyal!, a talented web developer and bot developer, aspires to excel in automation, aiming for remarkable achievements.
                         </div>
                     </div>
                 </div>

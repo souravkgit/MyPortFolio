@@ -1,5 +1,6 @@
 #web-about {
   height: 120vh;
+  min-height: calc(fit-content + 30px);
   width: 100vw;
   display: flex;
   justify-content: center;

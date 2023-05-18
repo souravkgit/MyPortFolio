@@ -120,7 +120,7 @@ nav {
   top: 5px;
   right: 15px;
   font-size: 1.2rem;
-  color: #c0c0c0;
+  color: #00ffff;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -130,7 +130,6 @@ nav {
 
 .web-logo {
   font-size: 1.2rem;
-  color: #0e2431;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -170,7 +169,6 @@ nav {
   backdrop-filter: blur(3px);
   height: 62px;
   display: none;
-  color: #c0c0c0;
 
   .web-header {
     width: 100%;
@@ -182,7 +180,7 @@ nav {
       justify-content: flex-start;
       align-items: center;
       padding: 5px;
-      color: #c0c0c0;
+      color: #00ffff;
     }
     .web-refs {
       width: 70%;
@@ -195,7 +193,7 @@ nav {
         width: 80px;
         cursor: pointer;
         position: relative;
-        color: #c0c0c0;
+        color: #00ffff;
         z-index: 1;
         text-decoration: none;
         padding-bottom: 5px;
@@ -203,7 +201,6 @@ nav {
         padding-right: 10px;
       }
       a:hover {
-        color: #c0c0c0;
         font-weight: bolder;
         z-index: 10;
         transform: translateY(-8px);
