@@ -1,6 +1,5 @@
 #web-home {
   height: 100vh;
-  max-height: 800px;
   width: 100vw;
   min-width: 350px;
   display: flex;
@@ -11,6 +10,7 @@
   background-size: 100vw 100vh;
   background-size: cover;
   background-repeat: no-repeat;
+
   .name {
     position: absolute;
     z-index: 10;
@@ -50,30 +50,35 @@
     -moz-animation-delay: 0.2s;
     -webkit-animation-delay: 0.2s;
   }
+
   .name div:nth-child(3) {
     animation-delay: 0.4s;
     -o-animation-delay: 0.4s;
     -webkit-animation-delay: 0.4s;
     -webkit-animation-delay: 0.4s;
   }
+
   .name div:nth-child(4) {
     animation-delay: 0.6s;
     -o-animation-delay: 0.6s;
     -moz-animation-delay: 0.6s;
     -webkit-animation-delay: 0.6s;
   }
+
   .name div:nth-child(5) {
     animation-delay: 0.8s;
     -o-animation-delay: 0.8s;
     -moz-animation-delay: 0.8s;
     -webkit-animation-delay: 0.8s;
   }
+
   .name div:nth-child(6) {
     animation-delay: 1s;
     -o-animation-delay: 1s;
     -moz-animation-delay: 1s;
     -webkit-animation-delay: 1s;
   }
+
   .name div:nth-child(7) {
     animation-delay: 1.2s;
     -o-animation-delay: 1.2s;
@@ -86,6 +91,7 @@
       left: 0;
       opacity: 0;
     }
+
     35% {
       left: 41%;
       -moz-transform: rotate(0deg);
@@ -94,6 +100,7 @@
       transform: rotate(0deg);
       opacity: 1;
     }
+
     65% {
       left: 59%;
       -moz-transform: rotate(0deg);
@@ -102,6 +109,7 @@
       transform: rotate(0deg);
       opacity: 1;
     }
+
     100% {
       left: 100%;
       -moz-transform: rotate(-180deg);
@@ -117,18 +125,21 @@
       left: 0;
       opacity: 0;
     }
+
     35% {
       left: 41%;
       -moz-transform: rotate(0deg);
       transform: rotate(0deg);
       opacity: 1;
     }
+
     65% {
       left: 59%;
       -moz-transform: rotate(0deg);
       transform: rotate(0deg);
       opacity: 1;
     }
+
     100% {
       left: 100%;
       -moz-transform: rotate(-180deg);
@@ -142,18 +153,21 @@
       left: 0;
       opacity: 0;
     }
+
     35% {
       left: 41%;
       -webkit-transform: rotate(0deg);
       transform: rotate(0deg);
       opacity: 1;
     }
+
     65% {
       left: 59%;
       -webkit-transform: rotate(0deg);
       transform: rotate(0deg);
       opacity: 1;
     }
+
     100% {
       left: 100%;
       -webkit-transform: rotate(-180deg);
@@ -167,18 +181,21 @@
       left: 0;
       opacity: 0;
     }
+
     35% {
       left: 41%;
       -o-transform: rotate(0deg);
       transform: rotate(0deg);
       opacity: 1;
     }
+
     65% {
       left: 59%;
       -o-transform: rotate(0deg);
       transform: rotate(0deg);
       opacity: 1;
     }
+
     100% {
       left: 100%;
       -o-transform: rotate(-180deg);
@@ -192,5 +209,15 @@
   #web-home .name {
     width: 600px;
     margin-left: -300px;
+  }
+}
+
+@media only screen and (max-height: 700px) {
+  #web-home {
+    height: 500px;
+
+    .name {
+      top: 200px;
+    }
   }
 }

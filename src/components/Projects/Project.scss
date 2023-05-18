@@ -6,20 +6,24 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #0c304d;
+
   .project-container {
     width: 70%;
     min-width: 300px;
     height: 80%;
-    padding: 4px;
     max-height: 500px;
     margin: auto;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: white;
+    border-radius: 10px;
+    border-style: inset;
+    border-width: 0px;
+
     .project-cards {
       width: 100%;
-      min-width: 350px;
-      margin: auto;
       height: 500px;
       display: flex;
       align-items: center;
@@ -27,20 +31,23 @@
       flex-direction: row;
       overflow-x: hidden;
       gap: 1rem;
-      box-shadow: 5px 5px 32px -8px rgba(0, 0, 0, 0.75);
+      box-shadow: 5px 5px 32px -8px rgba(239, 236, 236, 0.991);
       border-radius: 10px;
-      margin: 15px;
       border-style: inset;
       border-width: 0px;
+      background-color: white;
+
       #mid-card {
         border: 1px solid #eee;
         box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px;
         transition: all 0.3s ease-in-out;
       }
+
       #mid-card:hover {
         box-shadow: rgba(0, 0, 0, 0.22) 0px 19px 43px;
         transform: translate3d(0px, -10px, 0px);
       }
+
       .project-card {
         height: 450px;
         width: 300px;
@@ -50,16 +57,19 @@
         flex-direction: column;
         border-radius: 10px;
         background-color: aliceblue;
+
         .use-image {
           height: 300px;
           width: 300px;
           background-size: 300px 300px;
+
           .project-image {
             height: 300px;
             width: 300px;
             background-size: 300px 300px;
           }
         }
+
         .project-name {
           height: 80px;
           width: 100%;
@@ -69,6 +79,7 @@
           justify-content: center;
           align-items: center;
         }
+
         .project-link {
           height: 70px;
           width: 100%;
@@ -78,6 +89,7 @@
           justify-content: space-around;
           align-items: center;
           gap: 1rem;
+
           .my-btn {
             width: 7em;
             height: 3em;
@@ -92,12 +104,14 @@
             display: flex;
             justify-content: center;
             align-items: center;
+
             a {
               text-decoration: none;
               font-weight: bold;
               color: #000000;
             }
           }
+
           .my-btn::before {
             content: "";
             width: 0;
@@ -106,26 +120,27 @@
             position: absolute;
             top: 0;
             left: 0;
-            background-image: linear-gradient(
-              to right,
-              #c21500 0%,
-              #ffc500 100%
-            );
+            background-image: linear-gradient(to right,
+                #c21500 0%,
+                #ffc500 100%);
             transition: all 0.5s ease;
             display: block;
             z-index: -1;
           }
+
           .my-btn:hover::before {
             width: 9em;
           }
         }
       }
+
       .project-card:nth-child(1) {
         position: relative;
         z-index: 0;
         left: -12em;
         transition: all ease-out 0.5s linear;
       }
+
       .project-card:nth-child(2) {
         position: absolute;
         z-index: 4;
@@ -139,5 +154,11 @@
         transition: all ease-in 0.5s linear;
       }
     }
+  }
+}
+
+@media only screen and (max-height: 700px) {
+  #web-project {
+    height: 600px;
   }
 }

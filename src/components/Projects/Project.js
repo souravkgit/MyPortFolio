@@ -25,7 +25,7 @@ const Project = (props) => {
                 setrightCard(projects[currIndex + 1])
             }
         }, 5000);
-    }, [currIndex]);
+    }, [currIndex, mainCard, rightCard, projects]);
 
     return (
         <div id="web-project">

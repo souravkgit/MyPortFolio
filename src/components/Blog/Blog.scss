@@ -1,7 +1,57 @@
-#web-blog{
-    height: 300px;
-    width: 100vw;
+#web-blog {
+  height: 100vh;
+  width: 100vw;
+  min-width: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #3caca4;
+  .blog-box {
+    width: 90%;
+    min-width: 350px;
+    height: 90%;
+    min-height: 450px;
+    padding: 1px;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: row;
+    position: relative;
+    .demo-blog {
+      width: 50%;
+      height: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .blog-template {
+        height: 350px;
+        width: 300px;
+        background-color: black;
+        display: none;
+        position: fixed;
+        bottom: 20px; /* Adjust the distance from the bottom as needed */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 300px; /* Adjust the width as needed */
+        height: 200px; /* Adjust the height as needed */
+        // background-color: #f0f0f0; /* Replace with your desired background color */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        z-index: 9999;
+        // transform: translate(0px, 30px);
+        // transition-property: opacity, transform;
+        // transition-duration: 1.5s;
+        // transition-timing-function: cubic-bezier(0.2, 1, 0.2, 1);
+      }
+      .blog-template.visible {
+        display: flex;
+        transform: translateY(0%);
+      }
+    }
+  }
+}
+
+@media only screen and (max-height: 700px) {
+  #web-home {
+    height: 500px;
+  }
 }
