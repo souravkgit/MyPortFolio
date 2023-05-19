@@ -9,22 +9,33 @@ nav {
 
 .mob-container {
   min-width: 350px;
-  width: 90%;
+  width: 95%;
   margin: auto;
+  position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .small-navbar {
   background: transparent;
   width: 100%;
+  height: 90px;
+  -webkit-backdrop-filter: blur(3px);
   backdrop-filter: blur(3px);
   box-shadow: 0 1px 4px rgb(146 161 176 / 15%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mob-container.nav-container {
+  height: 90px;
 }
 
 .nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 62px;
 }
 
 .small-navbar .menu-items {
@@ -49,18 +60,13 @@ nav {
   transition: transform 0.1s linear;
 }
 
-.nav-container {
-  display: block;
-  height: 60px;
-}
-
 .nav-container .hamburger-lines {
   display: block;
   height: 26px;
   width: 32px;
   position: absolute;
-  top: 17px;
-  left: 20px;
+  // top: 17px;
+  left: 0;
   z-index: 1000;
   display: flex;
   flex-direction: column;
@@ -91,7 +97,7 @@ nav {
 }
 
 .menu-items {
-  z-index: 100;
+  z-index: 500;
   padding-top: 50px;
   position: relative;
   box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0.5);
@@ -107,7 +113,7 @@ nav {
   background-color: #343a40;
   border-radius: 10px;
   opacity: 1;
-  top: 30px;
+  top: 200px;
 }
 
 .small-navbar .menu-items li {
@@ -118,7 +124,6 @@ nav {
 
 .mob-logo {
   position: absolute;
-  top: 5px;
   right: 15px;
   font-size: 1.2rem;
   color: #00ffff;
@@ -172,7 +177,8 @@ nav {
   box-shadow: 0 1px 4px rgb(146 161 176 / 15%);
   background: transparent;
   backdrop-filter: blur(3px);
-  height: 62px;
+  -webkit-backdrop-filter: blur(3px);
+  height: 90px;
   display: none;
 
   .web-header {
@@ -243,6 +249,7 @@ nav {
 @media only screen and (min-width: 768px) {
   .small-navbar {
     display: none;
+    height: 90px;
   }
 
   .big-navbar {

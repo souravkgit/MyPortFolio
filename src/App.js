@@ -12,7 +12,7 @@ import pokemon_go_game from "../src/utils/pokemon_go_game.png"
 import pass_generator from "../src/utils/pass_generator.png"
 function App() {
   return (
-    <div className="App">
+    <>
       <Header />
       <Home />
       <About />
@@ -20,7 +20,7 @@ function App() {
       <Blog />
       <Contact />
       <Footer />
-    </div>
+    </>
   );
 }
 

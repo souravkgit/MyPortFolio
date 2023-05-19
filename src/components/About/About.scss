@@ -10,9 +10,11 @@
   // background-image: url("../../utils/bg1.jpg");
   background-color: #a4f0dc;
 }
+
 span {
   font-size: 1.2rem;
 }
+
 .about {
   // height: auto;
   width: 70vw;
@@ -30,6 +32,7 @@ span {
   gap: 0.5rem;
   box-shadow: 5px 35px 32px -8px #0c304d;
 }
+
 .myborder {
   border: var(--bs-border-width) var(--bs-border-style) rgba(13, 110, 253, 0.25) !important;
 }
@@ -53,12 +56,14 @@ span {
   justify-content: center;
   align-items: center;
 }
+
 .detail {
   font-size: 1rem;
   display: flex;
   justify-content: center;
   align-items: flex-start;
 }
+
 .completedata {
   display: flex;
   justify-content: space-around;
@@ -66,6 +71,48 @@ span {
   flex-direction: row;
   gap: 1rem;
 }
+
+.progress-bar {
+  width: 0%;
+  transition: all 1.5s ease;
+}
+
+#one {
+  .progress-bar.in-view {
+    width: 80%;
+  }
+}
+
+#two {
+  .progress-bar.in-view {
+    width: 70%;
+  }
+}
+
+#three {
+  .progress-bar.in-view {
+    width: 85%;
+  }
+}
+
+#four {
+  .progress-bar.in-view {
+    width: 80%;
+  }
+}
+
+#five {
+  .progress-bar.in-view {
+    width: 75%;
+  }
+}
+
+#six {
+  .progress-bar.in-view {
+    width: 70%;
+  }
+}
+
 
 .skills {
   height: 350px;
@@ -76,9 +123,11 @@ span {
   justify-content: center;
   align-items: flex-start;
 }
+
 .allskills {
   width: 100%;
 }
+
 .skill {
   display: flex;
   flex-direction: column;
@@ -110,12 +159,14 @@ span {
   display: flex;
   flex-direction: column;
 }
+
 .heading {
   font-size: 1.8rem;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .abtme-text {
   font-size: 1.1rem;
   display: flex;
@@ -160,24 +211,22 @@ span {
   left: 0;
   border-radius: 10px;
 }
+
 .my-wrapper::before {
   top: 0;
   height: 100%;
-  background-image: linear-gradient(
-    to top,
-    transparent 46%,
-    rgba(12, 13, 19, 0.5) 68%,
-    rgba(12, 13, 19) 97%
-  );
+  background-image: linear-gradient(to top,
+      transparent 46%,
+      rgba(12, 13, 19, 0.5) 68%,
+      rgba(12, 13, 19) 97%);
 }
+
 .my-wrapper::after {
   bottom: 0;
-  background-image: linear-gradient(
-    to bottom,
-    transparent 46%,
-    rgba(12, 13, 19, 0.5) 68%,
-    rgba(12, 13, 19) 97%
-  );
+  background-image: linear-gradient(to bottom,
+      transparent 46%,
+      rgba(12, 13, 19, 0.5) 68%,
+      rgba(12, 13, 19) 97%);
 }
 
 .cover-image:hover,
@@ -185,6 +234,7 @@ span {
   opacity: 0;
   z-index: -1;
 }
+
 .my-card:hover .my-wrapper::after {
   height: 120px;
   opacity: 0;
@@ -212,15 +262,19 @@ span {
     height: 150vh;
     min-width: 350px;
   }
+
   .about {
     width: 80vw;
   }
+
   .about-box {
     width: 80%;
   }
+
   .completedata {
     flex-direction: column;
   }
+
   .aboutme-box {
     width: 80%;
   }
@@ -228,6 +282,6 @@ span {
 
 @media only screen and (max-height: 700px) {
   #web-about {
-    height: 900px;
+    height: 1100px;
   }
 }

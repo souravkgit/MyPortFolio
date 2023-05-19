@@ -19,7 +19,7 @@ const Contact = () => {
                         <div className="centre-div">
                             <div className="mail-icon">
                                 <div className="icon-bg">
-                                    <i className="fa fa-envelope" style={{ "font-size": "30px" }}></i>
+                                    <i className="fa fa-envelope" style={{ "fontSize": "30px" }}></i>
                                 </div>
                             </div>
                             <div className="mail-text">
@@ -44,7 +44,7 @@ const Contact = () => {
                         </div>
                         <div className="form-message">
                             <div className="heading-text">
-                                <label for="project-desc">Tell us more about your project*</label>
+                                <label>Tell us more about your project*</label>
                             </div>
                             <textarea placeholder='Your Message...'></textarea>
                         </div>
