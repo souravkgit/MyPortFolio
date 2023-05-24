@@ -42,7 +42,7 @@ const Blog = () => {
                         <div className="blog-title">My Blogs</div>
                         <div className="blog-other">
                             <div className="blog-date">19-05-2023</div>
-                            <div className="blog-explore">Explore</div>
+                            <div className="blog-explore" onClick={() => { window.location.href = '/blogs' }}>Explore</div>
                         </div>
                     </div>
                 </div>
