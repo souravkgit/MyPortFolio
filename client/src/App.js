@@ -11,6 +11,7 @@ import tic_tac_toe from "../src/utils/tic_tac_toe.png"
 import pokemon_go_game from "../src/utils/pokemon_go_game.png"
 import pass_generator from "../src/utils/pass_generator.png"
 function App() {
+
   return (
     <>
       <Header />

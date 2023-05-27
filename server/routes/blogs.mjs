@@ -6,14 +6,21 @@ const router = express.Router();
 
 // This section will help you get a list of all the records.
 router.get("/", async (req, res) => {
-    let collection = await db.collection("records");
-    let results = await collection.find({}).toArray();
-    res.send(results).status(200);
+    try {
+        let collection = await db.collection("blogs");
+        let results = await collection.find({}).toArray();
+        res.send(results).status(200);
+    } catch (error) {
+        console.error("Error retrieving blogs:", error);
+        res.status(500).send("Internal Server Error");
+    }
 });
+
 
 // This section will help you get a single record by id
 router.get("/:id", async (req, res) => {
-    let collection = await db.collection("records");
+    console.log(req.params.id);
+    let collection = await db.collection("blogpages");
     let query = { _id: new ObjectId(req.params.id) };
     let result = await collection.findOne(query);
 
@@ -21,16 +28,28 @@ router.get("/:id", async (req, res) => {
     else res.send(result).status(200);
 });
 
+router.post("/:id", async (req, res) => {
+    console.log(req.params.id);
+    let newDocument = {
+        blogid: req.params.id,
+        content: req.body.content
+    };
+    let collection = await db.collection("blogpages");
+    let result = await collection.insertOne(newDocument);
+    res.sendStatus(201);
+});
 // This section will help you create a new record.
 router.post("/", async (req, res) => {
     let newDocument = {
-        name: req.body.name,
-        position: req.body.position,
-        level: req.body.level,
+        image: req.body.image,
+        title: req.body.title,
+        url: req.body.url,
+        readdate: req.body.readdate,
+        date: req.body.date
     };
-    let collection = await db.collection("records");
+    let collection = await db.collection("blogs");
     let result = await collection.insertOne(newDocument);
-    res.send(result).status(204);
+    res.sendStatus(201);
 });
 
 // This section will help you update a record by id.

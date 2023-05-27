@@ -6,6 +6,17 @@ import Mainpage from './Mainpage';
 import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+setTimeout(() => {
+  console.log("hi")
+  var parentElement = document.getElementsByClassName('blog-post');
+  for (let index = 0; index < parentElement.length; index++) {
+    const childElements = parentElement[index];
+    var parentRect = childElements.getBoundingClientRect();
+    if (parentRect.top < window.innerHeight && parentRect.bottom >= 0) {
+      childElements.classList.add('inmy-view');
+    }
+  }
+}, 4000)
 root.render(
   <React.StrictMode>
     <BrowserRouter>

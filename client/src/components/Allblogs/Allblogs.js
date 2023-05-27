@@ -1,249 +1,77 @@
 import React from "react";
 import "./Allblogs.scss";
 import Footer from "../Footer/Footer";
-import web_hosting from "./Blogs/Hosting NodeJs Application/web-hosting.jpeg";
+import VacantPage from "./VacantPage";
+import MainPage from "./MainPage";
+import { useEffect, useState } from "react";
+import Onload from "../Onload/Onload";
+
 
 const Allblogs = () => {
-    window.onload = () => {
-        var parentElement = document.getElementsByClassName('blog-post');
-        for (let index = 0; index < parentElement.length; index++) {
-            const childElements = parentElement[index];
-            var parentRect = childElements.getBoundingClientRect();
-            if (parentRect.top < window.innerHeight && parentRect.bottom >= 0) {
-                childElements.classList.add('inmy-view');
+    const [loading, setLoading] = useState(false);
+    const [blogs, setBlogs] = useState([]);
+    useEffect(() => {
+        async function getBlogs() {
+            const response = await fetch(`http://localhost:5050/blogs/`);
+            if (!response.ok) {
+                const message = `An error occurred: ${response.statusText}`;
+                window.alert(message);
+                return;
             }
-        }
-    };
-    document.addEventListener('scroll', function () {
-        var parentElement = document.getElementsByClassName('blog-post');
-        for (let index = 0; index < parentElement.length; index++) {
-            const childElements = parentElement[index];
-            var parentRect = childElements.getBoundingClientRect();
-            if (parentRect.top < window.innerHeight && parentRect.bottom >= 0) {
-                childElements.classList.add('inmy-view');
+            if (response) {
+                const blogs = await response.json();
+                setBlogs(blogs);
             }
+            return;
         }
-    });
+        getBlogs();
+        return;
+    }, [blogs.length]);
+    useEffect(() => {
+        setLoading(true);
+        setTimeout(() => {
+            setLoading(false);
+        }, 3500);
+    }, []);
+
+
+    function CheckBlogs(blogsArray) {
+        if (blogsArray.blogs.length > 0) {
+            return <MainPage blogs={blogsArray.blogs} />;
+        }
+        else {
+            return <VacantPage />
+        }
+    }
+
     return (
-        <div className="web-allblogs" id="web-allblogs">
-            <div className="blogs-navbar">
-                <div className="blog-nav">
-                    <div className="blogs-logo">
-                        My Blogs
+
+        loading ? (
+            <Onload />
+        ) : (
+            <>
+                <div className="web-allblogs" id="web-allblogs">
+                    <div className="blogs-navbar">
+                        <div className="blog-nav">
+                            <div className="blogs-logo">
+                                My Blogs
+                            </div>
+                            <div className="blogs-menu">
+                                <a href="/">Home</a>
+                            </div>
+                        </div>
                     </div>
-                    <div className="blogs-menu">
-                        <a href="/">Home</a>
+                    <div className="main-blogs-holder">
+
+                        <CheckBlogs blogs={blogs} />
+
                     </div>
+                    <Footer />
                 </div>
-            </div>
-            <div className="blogs-container">
-                <div className="blog-post">
-                    <div className="thumbnail">
-                        <img src={web_hosting} alt="" />
-                    </div>
-                    <div className="blog-title">
-                        <div className="title">
-                            Hosting Your Node Application
-                        </div>
-                    </div>
-                    <div className="blog-details">
-                        <div className="details">
-                            <time dateTime="2023-05-24 20:00">24 May 2023</time>
-                            <h4>/</h4>
-                            <a href="/blogs/blog-link">Link</a>
-                        </div>
-                    </div>
-                </div>
-                {/* <div className="blog-post">
-                    <div className="thumbnail">
-                        <img src={web_hosting} alt="" />
-                    </div>
-                    <div className="blog-title">
-                        <div className="title">
-                            Hosting Your Node Application
-                        </div>
-                    </div>
-                    <div className="blog-details">
-                        <div className="details">
-                            <time dateTime="2023-05-24 20:00">24 May 2023</time>
-                            <h4>/</h4>
-                            <a href="/blogs/blog-link">Link</a>
-                        </div>
-                    </div>
-                </div>
-                <div className="blog-post">
-                    <div className="thumbnail">
-                        <img src={web_hosting} alt="" />
-                    </div>
-                    <div className="blog-title">
-                        <div className="title">
-                            Hosting Your Node Application
-                        </div>
-                    </div>
-                    <div className="blog-details">
-                        <div className="details">
-                            <time dateTime="2023-05-24 20:00">24 May 2023</time>
-                            <h4>/</h4>
-                            <a href="/blogs/blog-link">Link</a>
-                        </div>
-                    </div>
-                </div>
-                <div className="blog-post">
-                    <div className="thumbnail">
-                        <img src={web_hosting} alt="" />
-                    </div>
-                    <div className="blog-title">
-                        <div className="title">
-                            Hosting Your Node Application
-                        </div>
-                    </div>
-                    <div className="blog-details">
-                        <div className="details">
-                            <time dateTime="2023-05-24 20:00">24 May 2023</time>
-                            <h4>/</h4>
-                            <a href="/blogs/blog-link">Link</a>
-                        </div>
-                    </div>
-                </div>
-                <div className="blog-post">
-                    <div className="thumbnail">
-                        <img src={web_hosting} alt="" />
-                    </div>
-                    <div className="blog-title">
-                        <div className="title">
-                            Hosting Your Node Application
-                        </div>
-                    </div>
-                    <div className="blog-details">
-                        <div className="details">
-                            <time dateTime="2023-05-24 20:00">24 May 2023</time>
-                            <h4>/</h4>
-                            <a href="/blogs/blog-link">Link</a>
-                        </div>
-                    </div>
-                </div>
-                <div className="blog-post">
-                    <div className="thumbnail">
-                        <img src={web_hosting} alt="" />
-                    </div>
-                    <div className="blog-title">
-                        <div className="title">
-                            Hosting Your Node Application
-                        </div>
-                    </div>
-                    <div className="blog-details">
-                        <div className="details">
-                            <time dateTime="2023-05-24 20:00">24 May 2023</time>
-                            <h4>/</h4>
-                            <a href="/blogs/blog-link">Link</a>
-                        </div>
-                    </div>
-                </div>
-                <div className="blog-post">
-                    <div className="thumbnail">
-                        <img src={web_hosting} alt="" />
-                    </div>
-                    <div className="blog-title">
-                        <div className="title">
-                            Hosting Your Node Application
-                        </div>
-                    </div>
-                    <div className="blog-details">
-                        <div className="details">
-                            <time dateTime="2023-05-24 20:00">24 May 2023</time>
-                            <h4>/</h4>
-                            <a href="/blogs/blog-link">Link</a>
-                        </div>
-                    </div>
-                </div>
-                <div className="blog-post">
-                    <div className="thumbnail">
-                        <img src={web_hosting} alt="" />
-                    </div>
-                    <div className="blog-title">
-                        <div className="title">
-                            Hosting Your Node Application
-                        </div>
-                    </div>
-                    <div className="blog-details">
-                        <div className="details">
-                            <time dateTime="2023-05-24 20:00">24 May 2023</time>
-                            <h4>/</h4>
-                            <a href="/blogs/blog-link">Link</a>
-                        </div>
-                    </div>
-                </div>
-                <div className="blog-post">
-                    <div className="thumbnail">
-                        <img src={web_hosting} alt="" />
-                    </div>
-                    <div className="blog-title">
-                        <div className="title">
-                            Hosting Your Node Application
-                        </div>
-                    </div>
-                    <div className="blog-details">
-                        <div className="details">
-                            <time dateTime="2023-05-24 20:00">24 May 2023</time>
-                            <h4>/</h4>
-                            <a href="/blogs/blog-link">Link</a>
-                        </div>
-                    </div>
-                </div>
-                <div className="blog-post">
-                    <div className="thumbnail">
-                        <img src={web_hosting} alt="" />
-                    </div>
-                    <div className="blog-title">
-                        <div className="title">
-                            Hosting Your Node Application
-                        </div>
-                    </div>
-                    <div className="blog-details">
-                        <div className="details">
-                            <time dateTime="2023-05-24 20:00">24 May 2023</time>
-                            <h4>/</h4>
-                            <a href="/blogs/blog-link">Link</a>
-                        </div>
-                    </div>
-                </div>
-                <div className="blog-post">
-                    <div className="thumbnail">
-                        <img src={web_hosting} alt="" />
-                    </div>
-                    <div className="blog-title">
-                        <div className="title">
-                            Hosting Your Node Application
-                        </div>
-                    </div>
-                    <div className="blog-details">
-                        <div className="details">
-                            <time dateTime="2023-05-24 20:00">24 May 2023</time>
-                            <h4>/</h4>
-                            <a href="/blogs/blog-link">Link</a>
-                        </div>
-                    </div>
-                </div>
-                <div className="blog-post">
-                    <div className="thumbnail">
-                        <img src={web_hosting} alt="" />
-                    </div>
-                    <div className="blog-title">
-                        <div className="title">
-                            Hosting Your Node Application
-                        </div>
-                    </div>
-                    <div className="blog-details">
-                        <div className="details">
-                            <time dateTime="2023-05-24 20:00">24 May 2023</time>
-                            <h4>/</h4>
-                            <a href="/blogs/blog-link">Link</a>
-                        </div>
-                    </div>
-                </div>*/}
-            </div>
-            <Footer />
-        </div>
+            </>
+        )
+
+
     );
 }
 
