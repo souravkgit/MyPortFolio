@@ -11,6 +11,7 @@ const Allblogs = () => {
     const [loading, setLoading] = useState(false);
     const [blogs, setBlogs] = useState([]);
     useEffect(() => {
+        setLoading(true);
         async function getBlogs() {
             const response = await fetch(`http://localhost:5050/blogs/`);
             if (!response.ok) {
@@ -25,10 +26,6 @@ const Allblogs = () => {
             return;
         }
         getBlogs();
-        return;
-    }, [blogs.length]);
-    useEffect(() => {
-        setLoading(true);
         setTimeout(() => {
             setLoading(false);
         }, 3500);

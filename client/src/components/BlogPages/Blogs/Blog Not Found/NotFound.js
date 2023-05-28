@@ -1,10 +1,6 @@
 import "./NotFound.scss";
 
 const NotFound = () => {
-    function goHome() {
-        console.log("heheheheehe")
-        window.location = "/";
-    }
     return (
         <div className="not-found-container">
             <div className="wrapper">

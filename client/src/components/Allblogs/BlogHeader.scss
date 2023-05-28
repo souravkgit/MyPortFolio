@@ -1,0 +1,19 @@
+.blog-nav {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+
+    .blogs-menu {
+        padding: 10px 20px;
+        border: 1px solid rgba(44, 62, 80, 0.2);
+        border-radius: 6px;
+        box-shadow: 0px 12px 18px -6px rgba(34, 56, 101, 0.04);
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+    }
+}
