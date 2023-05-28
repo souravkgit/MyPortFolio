@@ -16,6 +16,47 @@ import eleventh from "./utils/eleventh.jpg";
 import twelveth from "./utils/twelveth.jpg";
 
 const WebHosting = (props) => {
+    document.addEventListener('scroll', function () {
+        var childElements = document.getElementsByClassName('sub-chapters');
+        var listElements = document.getElementsByTagName("li");
+        var anchElements = document.getElementsByClassName("a-elements");
+        for (let index = 0; index < childElements.length; index++) {
+            const element = childElements[index];
+            var elementRect = element.getBoundingClientRect();
+            if (elementRect.top < window.innerHeight && elementRect.bottom >= 0) {
+                listElements[index].classList.add('active');
+                anchElements[index].classList.add('active');
+                for (var i = 0; i < childElements.length; i++) {
+                    if (i !== index) {
+                        listElements[i].classList.remove('active');
+                        anchElements[i].classList.remove('active');
+                    }
+                }
+            }
+        }
+
+    });
+    window.addEventListener('scroll', function () {
+        var div = document.getElementById('mobile-toc');
+        var rect = div.getBoundingClientRect();
+        var ele = document.querySelector(".contents");
+        var topOffset = rect.top;
+
+        if (topOffset <= 0) {
+            ele.classList.add('sticky');
+        } else {
+            ele.classList.remove('sticky');
+        }
+
+        var documentOffset = window.pageYOffset || document.documentElement.scrollTop;
+        if (documentOffset === 0) {
+            ele.classList.remove('sticky');
+        }
+    });
+    function showmob() {
+        document.querySelector(".contents-data").classList.toggle('visible');
+        document.querySelector(".mobile-context-text").classList.toggle('active');
+    }
     function runhere(e) {
         const copyText = e.target.parentElement.parentElement;
         navigator.clipboard.writeText(copyText.innerText);
@@ -25,18 +66,23 @@ const WebHosting = (props) => {
     return (
         <div className="main-blogpage-blog-container">
             <div className="contents">
+                <div className="mobile-content" id="mobile-toc">
+                    <div className="mobile-context-text" onClick={() => { showmob() }}>
+                        Table of Contents <img src="https://d33wubrfki0l68.cloudfront.net/assets/images/icons/840d74f7b1d04fbb08200337a9097c96d238f03b/top.png" alt="" />
+                    </div>
+                </div>
                 <div className="contents-data">
-
                     <div className="content-text">
                         TABLE OF CONTENTS
                     </div>
                     <ul>
-                        <li><a href="#Introduction">Getting Started</a></li>
-                        <li><a href="#basic-steps">Basic Steps</a></li>
-                        <li><a href="#pre-requirements">Pre Requirements</a></li>
-                        <li><a href="#set-aws">Setting Up Aws Machine</a></li>
-                        <li><a href="#set-domain">Setting Up Domain Name</a></li>
-                        <li><a href="#final-hosting">Hosting Your Website</a></li>
+                        <li className=""><a href="#Introduction" className="a-elements">Getting Started</a></li>
+                        <li className=""><a href="#basic-steps" className="a-elements">Basic Steps</a></li>
+                        <li className=""><a href="#pre-requirements" className="a-elements">Pre Requirements</a></li>
+                        <li className=""><a href="#set-aws" className="a-elements">Setting Up Aws Machine</a></li>
+                        <li className=""><a href="#set-domain" className="a-elements">Setting Up Domain Name</a></li>
+                        <li className=""><a href="#final-hosting" className="a-elements">Hosting Your Website</a></li>
+                        <li className=""><a href="#final-conclusion" className="a-elements">Conclusion</a></li>
                     </ul>
                 </div>
             </div>
@@ -63,7 +109,7 @@ const WebHosting = (props) => {
                 </div>
 
                 <div className="main-body">
-                    <div id="Introduction">
+                    <div id="Introduction" className="sub-chapters">
                         Setting up your website on your own domain can be a daunting task if you lack the proper knowledge. But fear not! In this blog, we will guide you through the entire process. First, acquire a domain from any online domain provider. We will then utilize AWS Machine and Apache server to host your web app. Forget complicated search results; our comprehensive guide will walk you through the setup, ensuring a seamless website hosting experience. Join us till the end and conquer the world of hosting your own web application!
                     </div>
                     <div className="sub-chapters" id="basic-steps">

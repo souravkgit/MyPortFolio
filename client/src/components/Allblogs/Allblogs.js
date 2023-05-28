@@ -8,8 +8,8 @@ import Onload from "../Onload/Onload";
 
 
 const Allblogs = () => {
-    const [loading, setLoading] = useState(false);
-    const [blogs, setBlogs] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [blogs, setBlogs] = useState();
     useEffect(() => {
         setLoading(true);
         async function getBlogs() {
@@ -30,10 +30,21 @@ const Allblogs = () => {
             setLoading(false);
         }, 3500);
     }, []);
-
+    setTimeout(() => {
+        if (loading === false) {
+            var parentElement = document.getElementsByClassName('blog-post');
+            for (let index = 0; index < parentElement.length; index++) {
+                const childElements = parentElement[index];
+                var parentRect = childElements.getBoundingClientRect();
+                if (parentRect.top < window.innerHeight && parentRect.bottom >= 0) {
+                    childElements.classList.add('inmy-view');
+                }
+            }
+        }
+    }, 500)
 
     function CheckBlogs(blogsArray) {
-        if (blogsArray.blogs.length > 0) {
+        if (blogsArray && blogsArray !== [] && blogsArray.blogs && blogsArray.blogs.length > 0) {
             return <MainPage blogs={blogsArray.blogs} />;
         }
         else {
