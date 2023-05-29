@@ -3,10 +3,12 @@ import Allblogs from "./components/Allblogs/Allblogs";
 import BlogPages from "./components/BlogPages/BlogPages";
 import { Routes, Route } from "react-router-dom";
 import { useParams } from 'react-router-dom';
+import "./loadEnvironment.js";
+const host = process.env.HOST || "http://localhost:5050/";
 
 const BlogWrapper = () => {
     const { id } = useParams();
-    return <BlogPages id={id} />
+    return <BlogPages id={id} host />
 };
 
 const Mainpage = () => {
@@ -25,7 +27,7 @@ const Mainpage = () => {
                     path="/blogs"
                     exact
                     element={
-                        <Allblogs />
+                        <Allblogs host />
                     }
                 />
                 <Route

@@ -7,13 +7,13 @@ import { useEffect, useState } from "react";
 import Onload from "../Onload/Onload";
 
 
-const Allblogs = () => {
+const Allblogs = ({ host }) => {
     const [loading, setLoading] = useState(true);
     const [blogs, setBlogs] = useState();
     useEffect(() => {
         setLoading(true);
         async function getBlogs() {
-            const response = await fetch(`http://localhost:5050/blogs/`);
+            const response = await fetch(host + "blogs/");
             if (!response.ok) {
                 const message = `An error occurred: ${response.statusText}`;
                 window.alert(message);

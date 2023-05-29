@@ -10,14 +10,14 @@ const BlogPages = (props) => {
     var data;
     const [loading, setLoading] = useState(true);
     const [Senddata, setSenddata] = useState();
-    var redire = props.id;
+    // var redire = props.id;
     window.onload = () => {
         setLoading(true);
     }
     useEffect(() => {
         setLoading(true);
         async function getData() {
-            const response = await fetch("http://localhost:5050/blogs/" + redire);
+            const response = await fetch(props.host + "blogs/" + props.id);
             if (!response.ok) {
                 const message = "Error Fetching Blog";
                 setSenddata(message);
@@ -39,7 +39,7 @@ const BlogPages = (props) => {
     }
     else {
         data = Senddata;
-        if (redire === "hosting-your-node-application" && data && data !== "Error Fetching Blog") {
+        if (props.id === "hosting-your-node-application" && data && data !== "Error Fetching Blog") {
             return (
                 <div id="current-blog-page">
                     <div className="blogs-navbar">
