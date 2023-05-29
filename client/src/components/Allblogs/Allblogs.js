@@ -28,6 +28,7 @@ const Allblogs = (props) => {
             return;
         }
         getBlogs();
+        console.log(newblog);
         setTimeout(() => {
             setLoading(false);
             setBlogs(newblog);
