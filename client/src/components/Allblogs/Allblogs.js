@@ -7,27 +7,30 @@ import { useEffect, useState } from "react";
 import Onload from "../Onload/Onload";
 
 
-const Allblogs = ({ host }) => {
+const Allblogs = (props) => {
     const [loading, setLoading] = useState(true);
     const [blogs, setBlogs] = useState();
+    var newblog;
     useEffect(() => {
         setLoading(true);
         async function getBlogs() {
-            const response = await fetch(host + "blogs/");
+            const response = await fetch(props.host + "blogs/");
             if (!response.ok) {
                 const message = `An error occurred: ${response.statusText}`;
                 window.alert(message);
+                newblog = [];
                 return;
             }
             if (response) {
-                const blogs = await response.json();
-                setBlogs(blogs);
+                newblog = await response.json();
+
             }
             return;
         }
         getBlogs();
         setTimeout(() => {
             setLoading(false);
+            setBlogs(newblog);
         }, 3500);
     }, []);
     setTimeout(() => {
